@@ -27,11 +27,11 @@ async def add_main_languages(message: Message, config: Config) -> None:
         'ce': '🏴  Нохчийн',
         'en': '🇺🇲  English',
         'ar': '🇸🇦  اَلْعَرَبِيَّةُ',
-        'tur': '🇹🇷  Türkçe',
-        'ru': '🇷🇺 Русский',
+        'tr': '🇹🇷  Türkçe',
+        'ru': '🇷🇺  Русский',
         'uk': '🇺🇦  Українська',
         'de': '🇩🇪  Deutsch',
-        'fr': '🇫🇷  Deutsch',
+        'fr': '🇫🇷  Le français',
     }
 
     for code, title in languages.items():

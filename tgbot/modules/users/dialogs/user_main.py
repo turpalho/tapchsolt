@@ -8,6 +8,7 @@ from aiogram_i18n import I18nContext
 from .states import UserStates
 from .practic.states import PracticState
 from .profile.states import ProfileState
+from .translation.states import TranslationState
 
 
 async def data_getter(dialog_manager: DialogManager,
@@ -33,8 +34,7 @@ async def go_to_dialog(call: CallbackQuery,
 async def go_translate(call: CallbackQuery,
                        button: Button,
                        dialog_manager: DialogManager):
-    # await dialog_manager.start(state=TopicsState.START)
-    pass
+    await dialog_manager.start(state=TranslationState.START)
 
 
 async def get_user_id(call: CallbackQuery,
