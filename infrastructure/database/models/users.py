@@ -33,8 +33,7 @@ class User(Base):
     translations: Mapped[list["Translation"]] = relationship(back_populates='user')
     payments: Mapped[list["Payment"]] = relationship(back_populates='user')
     subscriptions: Mapped[list["Subscription"]] = relationship(back_populates='user')
-    chats: Mapped[list["Chat"]] = relationship(back_populates="user",
-                                               secondary='userchat')
+    chats: Mapped[list["Chat"]] = relationship(back_populates="user")
 
     __mapper_args__ = {"eager_defaults": True}
 

@@ -1,5 +1,8 @@
 main_menu = Main Menu
 back_btn = Back
+tapchsolt = Tapchsolt
+translate = Translation
+start_dialog = Start chat with Tapchsolt
 wrong_answer = Wrong Answer
 correct_answer = Correct Answer
 dialog = Dialogue

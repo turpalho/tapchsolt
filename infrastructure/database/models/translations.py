@@ -7,7 +7,8 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from .base import Base
 
 if TYPE_CHECKING:
-    from . import Language, User
+    from .languages import Language
+    from .users import User
 
 
 class Translation(Base):
@@ -19,7 +20,7 @@ class Translation(Base):
                                                ForeignKey("languages.code",
                                                           ondelete='CASCADE'))
     user_id: Mapped[int] = mapped_column(BigInteger,
-                                         ForeignKey('user.id',
+                                         ForeignKey('users.id',
                                                     ondelete="CASCADE"))
 
     language: Mapped["Language"] = relationship(back_populates="translations")

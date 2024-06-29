@@ -1,6 +1,7 @@
 main_menu = Главное меню
 back_btn = Назад
 tapchsolt = Тапчсолт
+translate = Перевод
 instruction = Инструкция
 profile = Профиль
 start_dialog = Начните диалог с Тапчсолт

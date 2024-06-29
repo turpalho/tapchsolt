@@ -6,7 +6,7 @@ from aiogram_dialog.widgets.text import Format
 from aiogram_i18n import I18nContext
 
 from .states import UserStates
-from .transla.states import TopicsState
+from .practic.states import PracticState
 from .profile.states import ProfileState
 
 
@@ -27,13 +27,14 @@ async def data_getter(dialog_manager: DialogManager,
 async def go_to_dialog(call: CallbackQuery,
                     button: Button,
                     dialog_manager: DialogManager):
-    await dialog_manager.start(state=TopicsState.START)
+    await dialog_manager.start(state=PracticState.START)
 
 
 async def go_translate(call: CallbackQuery,
                        button: Button,
                        dialog_manager: DialogManager):
-    await dialog_manager.start(state=TopicsState.START)
+    # await dialog_manager.start(state=TopicsState.START)
+    pass
 
 
 async def get_user_id(call: CallbackQuery,

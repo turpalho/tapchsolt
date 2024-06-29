@@ -13,7 +13,7 @@ from aiogram_dialog.widgets.text import Const, Format
 from aiogram_i18n import I18nContext
 
 from langchain_core.messages import AIMessage, HumanMessage
-from langchain.memory import ChatMessageHistory
+from langchain_community.chat_message_histories import ChatMessageHistory
 
 # from services.broadcaster import broadcast_media_group, broadcast_plus
 from tgbot.services.api_manager import OpenaiClient
@@ -30,8 +30,8 @@ async def on_start(data, dialog_manager: DialogManager):
     openai_client = OpenaiClient(api_key=config.tg_bot.openai_api_key,
                                  system_message=system_message)
 
-    for key, value in dialog_manager.start_data.items():
-        dialog_manager.dialog_data[key] = value
+    # for key, value in dialog_manager.start_data.items():
+    #     dialog_manager.dialog_data[key] = value
 
     dialog_manager.dialog_data["openai_client"] = openai_client
 
@@ -76,7 +76,7 @@ practic_main_dialog = Dialog(
         Format(text="{dialog_message}"),
         MessageInput(func=get_ai_answer,
                      content_types=types.ContentType.TEXT),
-        back_btn,
+        close_dialog_back_btn,
         state=PracticState.START,
     ),
     on_start=on_start,

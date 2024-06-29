@@ -82,7 +82,6 @@ async def confirm_post_data(call: types.CallbackQuery,
 async def go_to_main_menu(call: types.CallbackQuery,
                           button,
                           dialog_manager: DialogManager):
-    await dialog_manager.done()
     await dialog_manager.start(UserStates.start)
 
 

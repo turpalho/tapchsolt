@@ -90,7 +90,11 @@ class TgBot:
         admin_ids = env.list("ADMINS", subcast=int)
         use_redis = env.bool("USE_REDIS")
         openai_api_key = env.str("OPENAI_API_KEY")
-        return TgBot(token=token, bot_name=bot_name, admin_ids=admin_ids, use_redis=use_redis)
+        return TgBot(token=token,
+                     bot_name=bot_name,
+                     admin_ids=admin_ids,
+                     use_redis=use_redis,
+                     openai_api_key=openai_api_key)
 
 
 @dataclass
