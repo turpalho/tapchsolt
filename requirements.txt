@@ -1,0 +1,17 @@
+aiogram==3.5.0
+aiogram_dialog==2.1.0
+aiogram-i18n
+alembic==1.13.1
+alembic[tz]
+environs==10.0.0
+SQLAlchemy~=2.0
+asyncpg==0.28.0
+apscheduler==3.10.4
+redis
+langchain
+langchain-openai
+langchain-community
+tiktoken
+fluent.runtime
+fluent_compiler
+greenlet==3.0.3
