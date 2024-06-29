@@ -15,6 +15,8 @@ from aiogram_i18n import I18nContext
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_community.chat_message_histories import ChatMessageHistory
 
+from deep_translator import GoogleTranslator
+
 # from services.broadcaster import broadcast_media_group, broadcast_plus
 from tgbot.services.api_manager import OpenaiClient
 from tgbot.config import Config
@@ -30,10 +32,13 @@ async def on_start(data, dialog_manager: DialogManager):
     openai_client = OpenaiClient(api_key=config.tg_bot.openai_api_key,
                                  system_message=system_message)
 
+    translator = GoogleTranslator(source="auto", target="ru")
+
     # for key, value in dialog_manager.start_data.items():
     #     dialog_manager.dialog_data[key] = value
 
     dialog_manager.dialog_data["openai_client"] = openai_client
+    dialog_manager.dialog_data["translator"] = translator
 
 
 async def data_getter(dialog_manager: DialogManager,
@@ -57,9 +62,13 @@ async def get_ai_answer(message: types.Message,
         chat_history = ChatMessageHistory()
 
     user_message = message.text
+    # translator: GoogleTranslator = dialog_manager.dialog_data["translator"]
+    translator = GoogleTranslator(source="auto", target="ru")
+    translation = translator.translate(user_message)
+
     chat_history.add_user_message(
         HumanMessage(
-                content=user_message
+                content=translation
         )
     )
 
@@ -67,7 +76,9 @@ async def get_ai_answer(message: types.Message,
     ai_answer = await openai_client.async_get_response(chat_history.messages)
     chat_history.add_ai_message(ai_answer)
 
-    dialog_manager.dialog_data["tapchsolt_answer"] = ai_answer.content
+    translator = GoogleTranslator(source="ru", target="ce")
+    tapchsolt_answer = translator.translate(ai_answer.content)
+    dialog_manager.dialog_data["tapchsolt_answer"] = tapchsolt_answer
     dialog_manager.dialog_data["chat_history"] = chat_history
 
 
