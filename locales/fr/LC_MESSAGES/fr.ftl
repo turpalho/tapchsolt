@@ -20,3 +20,6 @@ confirm_data = Confirmer les données
 user_saved = Utilisateur enregistré
 wrong_answer = Mauvaise réponse
 correct_answer = Bonne réponse
+all_instruction = 🟢  C'est un bot qui peut parler la langue tchétchène 💬\nIl est encore en apprentissage, donc il peut faire beaucoup d'erreurs.\n\n👥  Pour simplement discuter, allez dans la section "Tapchsolt".\n\n🔄  Pour traduire d'une langue à une autre, allez dans la section "Traduire".\n\n\n❔  Pour des commentaires, contactez l'administrateur: @lamcode
+to_go_repair = En raison de travaux techniques, le bot sera désactivé. Nous vous informerons lorsqu'il reprendra son activité.
+back_from_repair = Le bot est de retour en service. Pour commencer à l'utiliser, appuyez sur  /start

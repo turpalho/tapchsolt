@@ -28,7 +28,7 @@ async def data_getter(dialog_manager: DialogManager,
     user = await User.get(dialog_manager.event.message.chat.id)
 
     return {
-        "language": f"🔄  {_('language').lower()}",
+        "language": f"🔄  {_('language').capitalize()}",
         "user": f"🔅  {_("nickname")}: {user.username}",
         "back_btn": _("back_btn")
     }

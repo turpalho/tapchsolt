@@ -5,6 +5,7 @@ from aiogram_dialog.widgets.kbd import Button
 from aiogram_dialog.widgets.text import Format
 from aiogram_i18n import I18nContext
 
+from tgbot.modules.common.buttons import back_btn
 from .states import UserStates
 from .practic.states import PracticState
 from .profile.states import ProfileState
@@ -21,7 +22,9 @@ async def data_getter(dialog_manager: DialogManager,
         "tapchsolt": _("tapchsolt"),
         "translate": _("translate"),
         "instruction": _("instruction"),
+        "all_instruction": _("all_instruction").replace(r"\n", "\n"),
         "profile": _("profile"),
+        "back_btn": _("back_btn"),
     }
 
 
@@ -37,11 +40,11 @@ async def go_translate(call: CallbackQuery,
     await dialog_manager.start(state=TranslationState.START)
 
 
-async def get_user_id(call: CallbackQuery,
+async def get_instruction(call: CallbackQuery,
                       button: Button,
                       dialog_manager: DialogManager):
-    await call.answer()
-    return
+    await dialog_manager.next()
+
 
 async def go_to_profile(call: CallbackQuery,
                       button: Button,
@@ -60,11 +63,16 @@ users_main_dialog = Dialog(
             on_click=go_translate),
         Button(text=Format("ℹ  {instruction}"),
             id="view_instruct",
-            on_click=get_user_id),
+            on_click=get_instruction),
         Button(text=Format("🔰  {profile}"),
             id="view_profile",
             on_click=go_to_profile),
         state=UserStates.start,
+    ),
+    Window(
+        Format(text="{all_instruction}"),
+        back_btn,
+        state=UserStates.instruction,
     ),
     getter=data_getter
 )

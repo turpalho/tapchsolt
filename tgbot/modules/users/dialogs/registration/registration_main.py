@@ -120,7 +120,7 @@ registration_main_dialog = Dialog(
     ),
     Window(
         Format(text="{user_saved}"),
-         Button(text=Format("{main_menu}"),
+        Button(text=Format("{main_menu}"),
                id="registration_main__go_main",
                on_click=go_to_main_menu),
         state=UserRegistrationState.SAVE_USER,

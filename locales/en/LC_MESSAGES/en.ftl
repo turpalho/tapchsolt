@@ -20,3 +20,6 @@ confirm_data = Confirm Data
 user_saved = User Saved
 wrong_answer = Wrong Answer
 correct_answer = Correct Answer
+all_instruction = 🟢  This is a bot that can speak the Chechen language 💬\nIt's still learning, so it may make a lot of mistakes.\n\n👥  To just have a conversation, go to the "Tapchsolt" section.\n\n🔄  To translate from one language to another, go to the "Translate" section.\n\n\n❔  For feedback, contact the administrator: @lamcode
+to_go_repair = Due to technical work, the bot will be turned off. We will notify you when it resumes operation.
+back_from_repair = The bot is back in service. To start using it, press  /start

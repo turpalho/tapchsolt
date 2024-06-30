@@ -20,3 +20,6 @@ confirm_data = Verileri onayla
 user_saved = Kullanıcı kaydedildi
 wrong_answer = Yanlış cevap
 correct_answer = Doğru cevap
+all_instruction = 🟢  Bu, Çeçen dilini konuşabilen bir bot 💬\nHala öğreniyor, bu yüzden birçok hata yapabilir.\n\n👥  Sadece sohbet etmek için "Tapchsolt" bölümüne gidin.\n\n🔄  Bir dilden başka bir dile çevirmek için "Çeviri" bölümüne gidin.\n\n\n❔  Geri bildirim için yöneticiyle iletişime geçin: @lamcode
+to_go_repair = Teknik çalışmalar nedeniyle bot kapatılacak. Çalışmalara devam ettiğinde size bildireceğiz.
+back_from_repair = Bot tekrar hizmette. Kullanmak için  /start  tuşuna basın
