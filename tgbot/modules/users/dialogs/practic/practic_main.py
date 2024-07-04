@@ -20,7 +20,7 @@ from deep_translator import GoogleTranslator
 # from services.broadcaster import broadcast_media_group, broadcast_plus
 from tgbot.services.api_manager import OpenaiClient
 from tgbot.config import Config
-from tgbot.helpers.utils import get_openai_system_message
+from tgbot.helpers.utils import get_openai_system_message, get_openai_system_message_ce_mfa
 from tgbot.helpers.utils import create_absolute_path
 from tgbot.modules.common.buttons import back_btn, close_dialog_back_btn
 from .states import PracticState
@@ -32,13 +32,10 @@ async def on_start(data, dialog_manager: DialogManager):
     openai_client = OpenaiClient(api_key=config.tg_bot.openai_api_key,
                                  system_message=system_message)
 
-    translator = GoogleTranslator(source="auto", target="ru")
-
     # for key, value in dialog_manager.start_data.items():
     #     dialog_manager.dialog_data[key] = value
 
     dialog_manager.dialog_data["openai_client"] = openai_client
-    dialog_manager.dialog_data["translator"] = translator
 
 
 async def data_getter(dialog_manager: DialogManager,
@@ -62,7 +59,6 @@ async def get_ai_answer(message: types.Message,
         chat_history = ChatMessageHistory()
 
     user_message = message.text
-    # translator: GoogleTranslator = dialog_manager.dialog_data["translator"]
     translator = GoogleTranslator(source="auto", target="ru")
     translation = translator.translate(user_message)
 
@@ -78,6 +74,25 @@ async def get_ai_answer(message: types.Message,
 
     translator = GoogleTranslator(source="ru", target="ce")
     tapchsolt_answer = translator.translate(ai_answer.content)
+
+
+    # TODO create voice chat
+    # config: Config = dialog_manager.middleware_data.get("config")
+    # system_message_mfa = get_openai_system_message_ce_mfa()
+    # openai_client_mfa = OpenaiClient(api_key=config.tg_bot.openai_api_key,
+    #                                  system_message=system_message_mfa)
+    # chat_history_mfa = ChatMessageHistory()
+    # chat_history_mfa.add_user_message(
+    #     HumanMessage(
+    #             content=tapchsolt_answer
+    #     )
+    # )
+    # logging.info(chat_history_mfa.messages)
+    # logging.info(system_message_mfa)
+    # mfa_ce_text = await openai_client_mfa.async_get_response(chat_history_mfa.messages)
+
+
+    # dialog_manager.dialog_data["tapchsolt_answer"] = f"{ai_answer.content}\n\n{tapchsolt_answer}\n\n{mfa_ce_text.content}"
     dialog_manager.dialog_data["tapchsolt_answer"] = tapchsolt_answer
     dialog_manager.dialog_data["chat_history"] = chat_history
 
