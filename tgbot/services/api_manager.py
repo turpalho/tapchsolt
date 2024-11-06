@@ -6,6 +6,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from openai import AsyncOpenAI
 from openai.types.chat import ChatCompletionMessage
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 class OpenaiClient:
@@ -40,3 +41,35 @@ class OpenaiClient:
     #         messages=messages
     #     )
     #     return completion.choices[0].message
+
+
+class GoogleClient:
+    def __init__(self, api_key: str, system_message: str):
+        self.client: ChatGoogleGenerativeAI = ChatGoogleGenerativeAI(
+                                                    api_key=api_key,
+                                                    model="gemini-1.5-pro",
+                                                    temperature=1,
+                                                    max_tokens=8000,
+                                                    timeout=None,
+                                                    max_retries=2,
+                                                )
+        self.system_message = system_message
+
+    async def async_get_response(self, messages: list):
+
+        prompt = ChatPromptTemplate.from_messages(
+            [
+                (
+                    "system",
+                    self.system_message,
+                ),
+                MessagesPlaceholder(variable_name="messages"),
+            ]
+        )
+
+        chain = prompt | self.client
+
+        completion = chain.invoke(
+                {"messages": messages,}
+            )
+        return completion
