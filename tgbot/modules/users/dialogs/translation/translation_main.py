@@ -32,7 +32,12 @@ async def on_start(data, dialog_manager: DialogManager):
     system_message = get_ai_system_message()
 
     google_client = GoogleClient(api_key=config.tg_bot.gemini_api_key,
-                                 system_message=system_message)
+                                 system_message=system_message,
+                                 proxy_url=config.tg_bot.proxy_url)
+
+    # Тестируем прокси при первом запуске
+    if config.tg_bot.proxy_url:
+        await google_client.test_proxy_connection()
 
     dialog_manager.dialog_data["google_client"] = google_client
 

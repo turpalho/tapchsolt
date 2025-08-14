@@ -79,6 +79,7 @@ class TgBot:
     admin_ids: list[int]
     use_redis: bool
     gemini_api_key: str
+    proxy_url: Optional[str] = None
 
     @staticmethod
     def from_env(env: Env):
@@ -90,11 +91,13 @@ class TgBot:
         admin_ids = env.list("ADMINS", subcast=int)
         use_redis = env.bool("USE_REDIS")
         gemini_api_key = env.str("GEMINI_API_KEY")
+        proxy_url = env.str("PROXY_URL", None)  # Необязательный параметр
         return TgBot(token=token,
                      bot_name=bot_name,
                      admin_ids=admin_ids,
                      use_redis=use_redis,
-                     gemini_api_key=gemini_api_key)
+                     gemini_api_key=gemini_api_key,
+                     proxy_url=proxy_url)
 
 
 @dataclass

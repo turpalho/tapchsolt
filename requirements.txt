@@ -17,3 +17,4 @@ fluent.runtime
 fluent_compiler
 greenlet==3.0.3
 bs4
+httpx[socks]
