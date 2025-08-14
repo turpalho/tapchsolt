@@ -87,7 +87,7 @@ class GoogleClient:
             # model="gemini-2.5-pro",
             model="gemini-2.5-flash",
             temperature=1,
-            max_tokens=512,
+            max_tokens=4096,
             timeout=None,
             max_retries=2,
             # Пробуем включить thinking mode
