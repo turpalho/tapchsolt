@@ -29,8 +29,8 @@ async def data_getter(dialog_manager: DialogManager,
 
 
 async def go_to_dialog(call: CallbackQuery,
-                    button: Button,
-                    dialog_manager: DialogManager):
+                       button: Button,
+                       dialog_manager: DialogManager):
     await dialog_manager.start(state=PracticState.START)
 
 
@@ -41,14 +41,14 @@ async def go_translate(call: CallbackQuery,
 
 
 async def get_instruction(call: CallbackQuery,
-                      button: Button,
-                      dialog_manager: DialogManager):
+                          button: Button,
+                          dialog_manager: DialogManager):
     await dialog_manager.next()
 
 
 async def go_to_profile(call: CallbackQuery,
-                      button: Button,
-                      dialog_manager: DialogManager):
+                        button: Button,
+                        dialog_manager: DialogManager):
     await dialog_manager.start(state=ProfileState.START)
 
 
@@ -56,17 +56,17 @@ users_main_dialog = Dialog(
     Window(
         Format("〽  {main_menu}"),
         Button(text=Format("👥  {tapchsolt}"),
-            id="view_dialog",
-            on_click=go_to_dialog),
-        Button(text=Format("📚  {translate}"),
-            id="view_translate",
-            on_click=go_translate),
+               id="view_dialog",
+               on_click=go_to_dialog),
+        # Button(text=Format("📚  {translate}"),
+        #     id="view_translate",
+        #     on_click=go_translate),
         Button(text=Format("ℹ  {instruction}"),
-            id="view_instruct",
-            on_click=get_instruction),
+               id="view_instruct",
+               on_click=get_instruction),
         Button(text=Format("🔰  {profile}"),
-            id="view_profile",
-            on_click=go_to_profile),
+               id="view_profile",
+               on_click=go_to_profile),
         state=UserStates.start,
     ),
     Window(
@@ -76,4 +76,3 @@ users_main_dialog = Dialog(
     ),
     getter=data_getter
 )
-

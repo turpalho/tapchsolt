@@ -20,6 +20,6 @@ confirm_data = Daten bestätigen
 user_saved = Benutzer gespeichert
 wrong_answer = Falsche Antwort
 correct_answer = Richtige Antwort
-all_instruction = 🟢  Dies ist ein Bot, der die tschetschenische Sprache sprechen kann 💬\nEr lernt noch, daher kann er viele Fehler machen.\n\n👥  Um einfach zu sprechen, gehen Sie zum Abschnitt "Tapchsolt".\n\n🔄  Um von einer Sprache in eine andere zu übersetzen, gehen Sie zum Abschnitt "Übersetzen".\n\n\n❔  Für Feedback kontaktieren Sie den Administrator: @lamcode
+all_instruction = 🟢  Dies ist ein Bot, der die tschetschenische Sprache sprechen kann 💬\nEr lernt noch, daher kann er viele Fehler machen.\n\n👥  Um einfach zu sprechen, gehen Sie zum Abschnitt "Tapchsolt".\n\n🔄  Um von einer Sprache in eine andere zu übersetzen, gehen Sie zum Abschnitt "Übersetzen".\n\n\n❔  Für Feedback kontaktieren Sie den Administrator: @turpal_shams
 to_go_repair = Aufgrund technischer Arbeiten wird der Bot abgeschaltet. Wir benachrichtigen Sie, wenn er den Betrieb wieder aufnimmt.
 back_from_repair = Der Bot ist wieder im Dienst. Um ihn zu verwenden, drücken Sie  /start

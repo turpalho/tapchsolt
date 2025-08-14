@@ -58,3 +58,5 @@ key_words.txt
 base.pt
 faiss_index/
 audios/
+
+.cursor/

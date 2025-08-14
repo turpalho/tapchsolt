@@ -78,7 +78,7 @@ class TgBot:
     bot_name: str
     admin_ids: list[int]
     use_redis: bool
-    openai_api_key: str
+    gemini_api_key: str
 
     @staticmethod
     def from_env(env: Env):
@@ -89,12 +89,12 @@ class TgBot:
         bot_name = env.str("BOT_NAME")
         admin_ids = env.list("ADMINS", subcast=int)
         use_redis = env.bool("USE_REDIS")
-        openai_api_key = env.str("OPENAI_API_KEY")
+        gemini_api_key = env.str("GEMINI_API_KEY")
         return TgBot(token=token,
                      bot_name=bot_name,
                      admin_ids=admin_ids,
                      use_redis=use_redis,
-                     openai_api_key=openai_api_key)
+                     gemini_api_key=gemini_api_key)
 
 
 @dataclass
